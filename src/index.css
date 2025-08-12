@@ -1,13 +1,2 @@
 @import "tailwindcss";
 @plugin "daisyui";
-
-@config "./tailwind.config.js" {
-  theme: {
-    extend: {
-    }
-  }
-  ,
-  daisyui: {
-    themes: [ "dark"];
-  }
-}
