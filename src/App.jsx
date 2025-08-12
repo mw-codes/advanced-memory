@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 export default function App() {
   const positions = [1, 2, 3, 4, 5, 6];
@@ -74,13 +75,8 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-base-100 to-base-200">
-      {/* Navbar mit Props */}
-      <Navbar
-        score={score}
-        onCheckPair={checkPair}
-        onReset={resetGame}
-        foundPairs={foundPairs}
-      />
+      {/* Navbar - Title, Reset & Score */}
+      <Navbar foundPairs={foundPairs} score={score} onReset={resetGame} />
 
       {/* Main Content */}
       <div className="p-6">
@@ -172,12 +168,15 @@ export default function App() {
         )}
 
         {/* Footer */}
-        <div className="text-center mt-12">
+        <div className="text-center mt-12 mb-20">
           <div className="badge badge-outline badge-lg">
             {foundPairs.length}/3 Paare gefunden
           </div>
         </div>
       </div>
+
+      {/* Footer - nur Position Picker */}
+      <Footer onCheckPair={checkPair} />
     </div>
   );
 }
